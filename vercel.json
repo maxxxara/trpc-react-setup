@@ -1,44 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "pnpm run build",
+  "buildCommand": "pnpm --filter web build",
   "outputDirectory": "packages/web/dist",
   "installCommand": "pnpm install",
-  "framework": null,
-  "functions": {
-    "packages/api/src/index.ts": {
-      "runtime": "nodejs22.x"
-    }
-  },
-  "builds": [
-    {
-      "src": "packages/api/src/index.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": "packages/api/**"
-      }
-    },
-    {
-      "src": "packages/web/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/packages/api/src/index.ts"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/packages/web/dist/$1"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "framework": null
 }

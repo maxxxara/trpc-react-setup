@@ -1,5 +1,4 @@
 import { trpc } from "./trpc";
-import "./App.css";
 
 function App() {
   // The `greeting` procedure is fully typed!
